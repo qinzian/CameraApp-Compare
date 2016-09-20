@@ -6,14 +6,22 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <img class = 'logo'   id = 'logo' src="logo3.png" alt = "logo2 didn't load">
-    <img class = 'logo'   id = 'local_logo' src="logo2.png" alt = "logo1 didn't load">
-    <pre id="output1"></pre>
-    <p id ='debug'></p>
-    <canvas id = 'blank_canvas'></canvas>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <script src='script.js'> </script>
+    <p id ='debug'>null-img files have data of all zeros</p>
+    <p>{{debug}}</p>
 
+    <h1> Img1: <input type="text" ng-model = "img1Name">
+    <button ng-click = "load_img1()">Load</button>
+    </h1>
+    <br>
+    <h1> Img2: <input type="text" ng-model = "img2Name">
+    <button ng-click = "load_img2()">Load</button>
+    </h1>
 
+    <img class = 'logo'  id = 'img1' ng-src={{img1src}} alt = "img1 didn't load">
+    <img class = 'logo'  id = 'img2' ng-src={{img2src}} alt = "img2 didn't load">
+    <pre id="output"></pre>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+    <script src='script.js'> </script>
   </body>
 </html>

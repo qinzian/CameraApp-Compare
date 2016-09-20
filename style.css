@@ -1,12 +1,8 @@
 /*sets properties/style for element 'h1'*/
 h1 {font-size: 50px;}
-.coffee-cups{width: 300px;height: 500px}
 /*id takes priority when conflicting changes occur*/
-#img2{width:200px;height:200px}
-.java_cups{width:400px;height:200px}
 
 .logo{width:50px;height:50px}
 body {background: lightblue;padding:10px;}
-pre {color: black; background: yellow; width:600px}
-#blank_canvas{background: white;}
+p {color: black; background: yellow; width:600px}
 #debug{background: pink; width: 600px;}
