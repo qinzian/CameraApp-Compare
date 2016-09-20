@@ -30,19 +30,22 @@ controllers.TryCtrller = function ($scope) {
 compareImgApp.controller(controllers);
 
 function getImageData(imgID, callback) {
-	var imgObj = document.getElementById(imgID);
-	if (imgObj.canvas == null){
-		imgObj.canvas = $('<canvas />')[0];
+	var imgObj = document.getElementById('img1');
+	//**
+	var w = 50;//imgObj.width;
+	var h = 50;//imgObj.height;
 
-		imgObj.canvas.width = imgObj.width;
-		imgObj.canvas.height = imgObj.height;
+	if(imgObj.canvas ==null) {
+			imgObj.canvas = $('<canvas />')[0];
 
-		imgObj.canvas.getContext('2d').drawImage(imgObj, 0, 0, imgObj.width, imgObj.height);
+			imgObj.canvas.width = w;
+			imgObj.canvas.height = h;
+			imgObj.canvas.getContext('2d').drawImage(imgObj, 0, 0, w,h);
 	}
 	var imgcx = imgObj.canvas.getContext('2d');
 
-	var imgData = imgcx.getImageData(0, 0, imgObj.width, imgObj.height)
-	$('#debug').html(imgID);
+	var imageData = imgcx.getImageData(0,0,w,h);
+	$('#debug').html("got data");
   callback(imgData);
 }
 
@@ -52,7 +55,7 @@ function compare(firstImage, secondImage, callback) {
 	getImageData(firstImage, function (img1) {
 		getImageData(secondImage, function (img2) {
       if (img1.width !== img2.width || img1.height != img2.height) {
-				callback("YUNO GIVE IMG WITH SAME SIZES >:/");
+				callback("YUNO GIVE IMG WITH SAME SIZES   >:/");
 				return;
 			}
 
