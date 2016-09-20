@@ -41,8 +41,6 @@ function getImageData(imgID, callback) {
 	var imgData = imgcx.getImageData(0, 0, imgObj.width, imgObj.height)
 	$('#debug').html(imgID);
   callback(imgData);
-
-
 }
 
 function compare(firstImage, secondImage, callback) {
