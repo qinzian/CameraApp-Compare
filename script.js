@@ -10,12 +10,14 @@ controllers.TryCtrller = function ($scope) {
 	$scope.load_img1 = function(){
 		$('#debug').html('loading img1');
 		$scope.debug = "clicked load_img1 button";
-		$scope.img1src = "images/logo1.png";// + $scope.img1Name;
+		$scope.img1src = "images/" +$scope.img1Name;
+		$scope.output = "";
 	};
 	$scope.load_img2 = function(){
 		$('#debug').html('loading img2');
 		$scope.debug = "clicked load_img2 button";
-		$scope.img2src = "images/logo2.png";// + $scope.img2Name;
+		$scope.img2src = "images/" + $scope.img2Name;
+		$scope.output = "";
 	};
 
 	$scope.compare = function(){
@@ -30,22 +32,18 @@ controllers.TryCtrller = function ($scope) {
 compareImgApp.controller(controllers);
 
 function getImageData(imgID, callback) {
-	var imgObj = document.getElementById('img1');
-	//**
-	var w = 50;//imgObj.width;
-	var h = 50;//imgObj.height;
+	var imgObj = document.getElementById(imgID);
 
-	if(imgObj.canvas ==null) {
-			imgObj.canvas = $('<canvas />')[0];
 
-			imgObj.canvas.width = w;
-			imgObj.canvas.height = h;
-			imgObj.canvas.getContext('2d').drawImage(imgObj, 0, 0, w,h);
-	}
+	imgObj.canvas = $('<canvas />')[0];
+	imgObj.canvas.width = imgObj.width;
+	imgObj.canvas.height = imgObj.height;
+	imgObj.canvas.getContext('2d').drawImage(imgObj, 0, 0, imgObj.width, imgObj.height);
+
 	var imgcx = imgObj.canvas.getContext('2d');
+	$('#debug').html(!imgObj.canvas);
+	var imgData = imgcx.getImageData(0,0,imgObj.width, imgObj.height);
 
-	var imageData = imgcx.getImageData(0,0,w,h);
-	$('#debug').html("got data");
   callback(imgData);
 }
 
