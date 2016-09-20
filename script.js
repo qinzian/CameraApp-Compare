@@ -21,6 +21,7 @@ controllers.TryCtrller = function ($scope) {
 	$scope.compare = function(){
 		$('#debug').html('loading compareImg');
 		$scope.debug = "clicked compare button";
+
 		compare('img1', 'img2', function (result) {
 		  $scope.output = result;
 		});
@@ -30,14 +31,16 @@ compareImgApp.controller(controllers);
 
 function getImageData(imgID, callback) {
 	var imgObj = document.getElementById(imgID);
-	if (true){//imgObj.canvas == null){
+	if (imgObj.canvas == null){
 		imgObj.canvas = $('<canvas />')[0];
 
 		imgObj.canvas.width = imgObj.width;
 		imgObj.canvas.height = imgObj.height;
+
 		imgObj.canvas.getContext('2d').drawImage(imgObj, 0, 0, imgObj.width, imgObj.height);
 	}
 	var imgcx = imgObj.canvas.getContext('2d');
+
 	var imgData = imgcx.getImageData(0, 0, imgObj.width, imgObj.height)
 	$('#debug').html(imgID);
   callback(imgData);
