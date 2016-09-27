@@ -59,7 +59,7 @@ function compareImg(firstImage, secondImage,callback) {
 			var lab2;
 
 			for (var i = 0; i < img1.data.length / 4; i++) {
-				//*  <-- //use this to switch between methods
+														//*  //<-- use the //* to switch between methods
 
 				v1 = [img1.data[4 * i + 0],img1.data[4 * i + 1],img1.data[4 * i + 2]];
 				lab1 = RGBtoLAB(v1);
