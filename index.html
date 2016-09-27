@@ -6,30 +6,29 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div ng-controller = "TryCtrller">
-      <p id ='debug'>null-img files have data of all zeros</p>
+    <div ng-controller="TryCtrl">
+
+      <p id ='debug'>null-img src has imgdata of all zeros</p>
       <p>{{debug}}</p>
 
-      <h1> Img1: <input type="text" ng-model = "img1Name">
-      <button ng-click = "load_img1()">Load</button>
-      </h1>
+
+
+      <h1>Img1 is: <input type="text" ng-model="img1Name" >
+      <button ng-click = 'load_img1()'>Load</button>  </h1>
+      <h1>Img2 is: <input type="text" ng-model="img2Name" >
+      <button ng-click = 'load_img2()'>Load</button>  </h1>
+
+
+      <button ng-click = 'compare()'>Compare</button>
       <br>
-      <h1> Img2: <input type="text" ng-model = "img2Name">
-      <button ng-click = "load_img2()">Load</button>
-      </h1>
+      <img class = 'logo'   id = 'img1' ng-src="{{img1src}}" alt = "img1 didn't load">
+      <img class = 'logo'   id = 'img2' ng-src="{{img2src}}" alt = "img2 didn't load">
+      <p>{{"output:   " + output}}</p>
+      </div>
 
-      <img class = 'logo'  id = 'img1' ng-src={{img1src}} alt = "img1 didn't load">
-      <img class = 'logo'  id = 'img2' ng-src={{img2src}} alt = "img2 didn't load">
-      <!--  <img class = 'logo'  id = 'img1' src="images/logo1.png" alt = "img1 didn't load">
-      <img class = 'logo'  id = 'img2' src="images/logo2.png" alt = "img2 didn't load"> -->
-      <pre>{{"output:   " + output}}</pre>
-
-      <button ng-click = "compare()">Compare</button>
-
-    </div>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script><!---->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-
     <script src='script.js'> </script>
+
   </body>
 </html>
