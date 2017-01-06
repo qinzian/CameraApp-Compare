@@ -1,3 +1,4 @@
+#This is taken from an open, online sources, iGEM do not own any of the contents in this file
 import Image
  
 i1 = Image.open("logo2.png")
